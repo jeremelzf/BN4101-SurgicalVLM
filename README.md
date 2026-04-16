@@ -1,4 +1,4 @@
-# BN4101-SurgicalVLM
+# BN4101 - Multi-Modal VLM for Surgical Scene Understanding
 
 **Author:** Jereme Lee  
 **Module:** BN4101 Final Year Project, NUS Biomedical Engineering  
@@ -6,7 +6,7 @@
 
 This repository contains the project-specific scripts developed for fine-tuning and evaluating a Vision-Language Model (Qwen3-VL-8B-Instruct) on the GraSP dataset for holistic surgical scene understanding of robot-assisted radical prostatectomies.
 
-> **Note:** Model training was conducted using 
+> **Note:** Model training and inference was conducted using 
 > [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory). 
 > This repository contains only the original project code; 
 > LLaMA-Factory must be set up separately as a dependency.
@@ -18,13 +18,15 @@ This repository contains the project-specific scripts developed for fine-tuning 
 ```
 BN4101-SurgicalVLM/
 ├── eval/
-│   ├── eval_metrics.py       # GraSP evaluation pipeline
-│   └── grasp_eval.yaml       # Evaluation configuration
+│   └── eval_metrics.py       # GraSP evaluation pipeline
 ├── data_prep/
 │   └── convert_grasp_test-2.py       # Test set conversion & stratified sampling
 ├── training/
 │   ├── grasp_sft.yaml       # LoRA fine-tuning hyperparameters
-│   └── grasp_job.pbs       # NUS HPC job submission script
+│   └── grasp_job.pbs       # NUS HPC SFT job submission script
+├── inference/
+│   ├── grasp_eval.yaml       # Inference configuration
+│   └── grasp_eval.pbs       # NUS HPC inference job submission script
 └── README.md
 ```
 
@@ -40,7 +42,7 @@ Key features:
 - Stratified sampling: ~23% of frames per phase (min. 1) for balanced evaluation
 - Outputs one JSONL entry per task per frame
 
-Output: GraSP_test.jsonl
+Output: `GraSP_test.jsonl`
 
 ### `eval/eval_metrics.py`
 Evaluates model predictions across all four GraSP tasks:
@@ -51,10 +53,21 @@ Evaluates model predictions across all four GraSP tasks:
 Key features:
 - Two-stage normalisation: synonym expansion → GraSP co-occurrence constraint pruning
 - Constraint rules derived from Ayobi et al. (2024), Figs C.13–C.16
-- Accepts `.jsonl` or `.tsv` prediction files
-- Outputs a summary JSON (`eval_results.json`)
+- Outputs a summary JSON
 
-Output: eval_results.json
+Output: `eval_results.json`
+
+### `training/grasp_sft.yaml`
+LLaMA-Factory configuration for LoRA supervised fine-tuning of Qwen3-VL-8B-Instruct on the GraSP training set.
+
+### `training/grasp_job.pbs`
+PBS job script for submitting the LoRA fine-tuning job to the NUS HPC cluster.
+
+### `inference/grasp_eval.yaml`
+LLaMA-Factory configuration file for running inference on the GraSP test set.
+
+### `inference/grasp_eval.pbs`
+PBS job script for submitting the inference job to the NUS HPC cluster.
 
 ---
 
