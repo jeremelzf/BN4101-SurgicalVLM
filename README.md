@@ -4,7 +4,7 @@
 **Module:** BN4101 Final Year Project, NUS Biomedical Engineering  
 **Academic Year:** 2025/2026  
 
-This repository contains the project-specific scripts developed for fine-tuning and evaluating a Vision-Language Model (Qwen3-VL) on the GraSP dataset for holistic surgical scene understanding of robot-assisted radical prostatectomies.
+This repository contains the project-specific scripts developed for fine-tuning and evaluating a Vision-Language Model (Qwen3-VL-8B-Instruct) on the GraSP dataset for holistic surgical scene understanding of robot-assisted radical prostatectomies.
 
 > **Note:** Model training was conducted using 
 > [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory). 
