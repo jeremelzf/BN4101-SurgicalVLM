@@ -14,6 +14,8 @@ This repository contains the project-specific scripts developed for fine-tuning 
 ---
 
 ## Repository Structure
+
+```
 BN4101-SurgicalVLM/
 ├── eval/
 │   ├── eval_metrics.py       # GraSP evaluation pipeline
@@ -24,6 +26,7 @@ BN4101-SurgicalVLM/
 │   ├── grasp_sft.yaml       # LoRA fine-tuning hyperparameters
 │   └── grasp_job.pbs       # NUS HPC job submission script
 └── README.md
+```
 
 ---
 
