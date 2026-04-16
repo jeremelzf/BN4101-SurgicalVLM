@@ -1,0 +1,34 @@
+#!/bin/bash
+#PBS -N grasp_sft
+#PBS -l select=1:ncpus=16:ngpus=2:mem=80gb
+#PBS -l walltime=72:00:00
+#PBS -o /scratch/e0957602/BN4101/logs/grasp_sft.out
+#PBS -e /scratch/e0957602/BN4101/logs/grasp_sft.err
+#PBS -M e0957602@u.nus.edu
+#PBS -m abe
+
+cd $PBS_O_WORKDIR
+cd ~/LLaMA-Factory
+
+# Load modules
+module load Python/3.12.3-GCCcore-13.3.0
+
+# Activate environment
+source ~/venvs/llmf/bin/activate
+
+# Point HuggingFace cache to scratch
+export HF_HOME=/scratch/e0957602/BN4101/huggingface_cache
+
+echo "=== Training Started ==="
+echo "Job ID: $PBS_JOBID"
+echo "Started on: $(date)"
+echo "Running on node: $(hostname)"
+echo "GPUs available: $(nvidia-smi --query-gpu=name --format=csv,noheader)"
+echo "========================"
+
+# Launch training on 2 GPUs
+FORCE_TORCHRUN=1 CUDA_VISIBLE_DEVICES=0,1 llamafactory-cli train \
+    ~/LLaMA-Factory/grasp_sft.yaml
+
+echo "=== Training Finished ==="
+echo "Ended on: $(date)"
