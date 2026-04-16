@@ -2,9 +2,9 @@
 #PBS -N grasp_eval
 #PBS -l select=1:ncpus=8:ngpus=1:mem=64gb
 #PBS -l walltime=48:00:00
-#PBS -o /scratch/e0957602/BN4101/logs/grasp_eval.out
-#PBS -e /scratch/e0957602/BN4101/logs/grasp_eval.err
-#PBS -M e0957602@u.nus.edu
+#PBS -o /scratch/student_id/BN4101/logs/grasp_eval.out
+#PBS -e /scratch/student_id/BN4101/logs/grasp_eval.err
+#PBS -M student_id@u.nus.edu
 #PBS -m abe
 
 cd $PBS_O_WORKDIR

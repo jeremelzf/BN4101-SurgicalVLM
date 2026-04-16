@@ -1,15 +1,15 @@
 ### Model — point to your exported merged model
-model_name_or_path: /scratch/e0957602/BN4101/exported_model_run2/
+model_name_or_path: /scratch/student_id/BN4101/exported_model_run2/
 template: qwen3_vl_nothink
 finetuning_type: full
 
 ### Dataset
 eval_dataset: grasp_test
-dataset_dir: /nfs/home/svu/e0957602/LLaMA-Factory/data/
+dataset_dir: /nfs/home/svu/student_id/LLaMA-Factory/data/
 cutoff_len: 4096
 
 ### Output
-output_dir: /scratch/e0957602/BN4101/eval_output/
+output_dir: /scratch/student_id/BN4101/eval_output/
 predict_with_generate: true
 do_predict: true
 

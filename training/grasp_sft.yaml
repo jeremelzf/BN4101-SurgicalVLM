@@ -44,7 +44,7 @@ bf16: true
 logging_steps: 10
 save_steps: 500
 save_total_limit: 2
-output_dir: /scratch/e0957602/BN4101/saves/grasp_phase_step
+output_dir: /scratch/student_id/BN4101/saves/grasp_phase_step
 report_to: none
 plot_loss: true
 

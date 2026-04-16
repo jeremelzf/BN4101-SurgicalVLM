@@ -2,9 +2,9 @@
 #PBS -N grasp_sft
 #PBS -l select=1:ncpus=16:ngpus=2:mem=80gb
 #PBS -l walltime=72:00:00
-#PBS -o /scratch/e0957602/BN4101/logs/grasp_sft.out
-#PBS -e /scratch/e0957602/BN4101/logs/grasp_sft.err
-#PBS -M e0957602@u.nus.edu
+#PBS -o /scratch/student_id/BN4101/logs/grasp_sft.out
+#PBS -e /scratch/student_id/BN4101/logs/grasp_sft.err
+#PBS -M student_id@u.nus.edu
 #PBS -m abe
 
 cd $PBS_O_WORKDIR
@@ -17,7 +17,7 @@ module load Python/3.12.3-GCCcore-13.3.0
 source ~/venvs/llmf/bin/activate
 
 # Point HuggingFace cache to scratch
-export HF_HOME=/scratch/e0957602/BN4101/huggingface_cache
+export HF_HOME=/scratch/student_id/BN4101/huggingface_cache
 
 echo "=== Training Started ==="
 echo "Job ID: $PBS_JOBID"

@@ -6,7 +6,7 @@ from collections import defaultdict
 # ── CONFIG ───────────────────────────────────────────────────────────────────
 LONG_TERM_JSON  = "data/GraSP/test/grasp_long-term_test.json"
 SHORT_TERM_JSON = "data/GraSP/test/grasp_short-term_test.json"
-FRAMES_DIR      = "/scratch/e0957602/BN4101/frames/1fps_frames"
+FRAMES_DIR      = "/scratch/student_id/BN4101/frames/1fps_frames"
 OUTPUT_JSONL    = "data/GraSP/test/GraSP_test.jsonl"
 # ─────────────────────────────────────────────────────────────────────────────
 
