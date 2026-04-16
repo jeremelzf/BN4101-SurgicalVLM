@@ -44,9 +44,9 @@ Output: GraSP_test.jsonl
 
 ### `eval/eval_metrics.py`
 Evaluates model predictions across all four GraSP tasks:
-- **Phase & Step Recognition** — single-label; reports Accuracy, Macro F1, mAP
-- **Instrument Segmentation** — multi-label; reports Exact Match, Macro F1, mAP
-- **Atomic Action Detection** — multi-label; same metrics as above
+- **Phase & Step Recognition**: single-label; reports Accuracy, Macro F1, mAP
+- **Instrument Segmentation**: multi-label; reports Exact Match, Macro F1, mAP
+- **Atomic Action Detection**: multi-label; same metrics as above
 
 Key features:
 - Two-stage normalisation: synonym expansion → GraSP co-occurrence constraint pruning
